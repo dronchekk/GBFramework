@@ -26,6 +26,22 @@
 		696014DF285DC72100F61289 /* TSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696014DE285DC72100F61289 /* TSegue.swift */; };
 		696014E3285F6C5F00F61289 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696014E2285F6C5F00F61289 /* MapKit.framework */; };
 		696014E5285F6E7100F61289 /* gpxgenerator_path.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 696014E4285F6E7100F61289 /* gpxgenerator_path.gpx */; };
+		69C91FCB285FD48C00F55CFE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 69C91FCA285FD48C00F55CFE /* Realm */; };
+		69C91FCD285FD48C00F55CFE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69C91FCC285FD48C00F55CFE /* RealmSwift */; };
+		69C91FD0285FD51D00F55CFE /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FCF285FD51D00F55CFE /* DatabaseService.swift */; };
+		69C91FD3285FD5D000F55CFE /* LatLngObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FD2285FD5D000F55CFE /* LatLngObject.swift */; };
+		69C91FD6285FD83A00F55CFE /* MapPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FD5285FD83A00F55CFE /* MapPolyline.swift */; };
+		69C91FD82860AB5700F55CFE /* CALayer-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FD72860AB5700F55CFE /* CALayer-Extension.swift */; };
+		69C91FDA2860ABCB00F55CFE /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FD92860ABCB00F55CFE /* UIBarButtonItem.swift */; };
+		69C91FDC2860ABE700F55CFE /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FDB2860ABE700F55CFE /* UIButton-Extension.swift */; };
+		69C91FDE2860AC0600F55CFE /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FDD2860AC0600F55CFE /* UIColor-Extension.swift */; };
+		69C91FE02860AC5200F55CFE /* UITextField-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FDF2860AC5200F55CFE /* UITextField-Extension.swift */; };
+		69C91FE22860AC8000F55CFE /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FE12860AC8000F55CFE /* UIView-Extension.swift */; };
+		69C91FE42860ACB000F55CFE /* UIViewController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FE32860ACB000F55CFE /* UIViewController-Extension.swift */; };
+		69C91FE72860AD1000F55CFE /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FE62860AD1000F55CFE /* Locales.swift */; };
+		69C91FE92860AD3700F55CFE /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FE82860AD3700F55CFE /* Styles.swift */; };
+		69C91FED2860D70800F55CFE /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69C91FEB2860B06000F55CFE /* SourceSansPro-Regular.ttf */; };
+		69C91FEE2860D70B00F55CFE /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69C91FEC2860B06000F55CFE /* SourceSansPro-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +66,20 @@
 		696014DE285DC72100F61289 /* TSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSegue.swift; sourceTree = "<group>"; };
 		696014E2285F6C5F00F61289 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		696014E4285F6E7100F61289 /* gpxgenerator_path.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gpxgenerator_path.gpx; sourceTree = "<group>"; };
+		69C91FCF285FD51D00F55CFE /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		69C91FD2285FD5D000F55CFE /* LatLngObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngObject.swift; sourceTree = "<group>"; };
+		69C91FD5285FD83A00F55CFE /* MapPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPolyline.swift; sourceTree = "<group>"; };
+		69C91FD72860AB5700F55CFE /* CALayer-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer-Extension.swift"; sourceTree = "<group>"; };
+		69C91FD92860ABCB00F55CFE /* UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
+		69C91FDB2860ABE700F55CFE /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
+		69C91FDD2860AC0600F55CFE /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		69C91FDF2860AC5200F55CFE /* UITextField-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField-Extension.swift"; sourceTree = "<group>"; };
+		69C91FE12860AC8000F55CFE /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
+		69C91FE32860ACB000F55CFE /* UIViewController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController-Extension.swift"; sourceTree = "<group>"; };
+		69C91FE62860AD1000F55CFE /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
+		69C91FE82860AD3700F55CFE /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		69C91FEB2860B06000F55CFE /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		69C91FEC2860B06000F55CFE /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C91FCD285FD48C00F55CFE /* RealmSwift in Frameworks */,
+				69C91FCB285FD48C00F55CFE /* Realm in Frameworks */,
 				696014E3285F6C5F00F61289 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +141,7 @@
 		696014BA285CD0BA00F61289 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				69C91FE52860ACE100F55CFE /* Theme */,
 				696014C6285DB87700F61289 /* Protocols */,
 				696014C5285DB84300F61289 /* Extensions */,
 			);
@@ -126,6 +159,7 @@
 		696014BC285CD0DC00F61289 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				69C91FEA2860AFC100F55CFE /* Fonts */,
 				69276AAC2859FF4100C00A3E /* Assets.xcassets */,
 				696014E4285F6E7100F61289 /* gpxgenerator_path.gpx */,
 				69276AAE2859FF4100C00A3E /* LaunchScreen.storyboard */,
@@ -136,6 +170,7 @@
 		696014BD285CD0F700F61289 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				69C91FD4285FD6EF00F55CFE /* App */,
 				696014C1285CD13C00F61289 /* Observable */,
 				696014C0285CD13400F61289 /* Location */,
 			);
@@ -147,6 +182,7 @@
 			children = (
 				696014CE285DC25700F61289 /* LatLng.swift */,
 				696014D0285DC2FE00F61289 /* MapPointAnnotation.swift */,
+				69C91FD5285FD83A00F55CFE /* MapPolyline.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -207,6 +243,13 @@
 				696014D6285DC5E600F61289 /* Double-Extension.swift */,
 				696014D8285DC64000F61289 /* MKMapView-Extension.swift */,
 				696014DA285DC67900F61289 /* UIImage-extension.swift */,
+				69C91FD72860AB5700F55CFE /* CALayer-Extension.swift */,
+				69C91FD92860ABCB00F55CFE /* UIBarButtonItem.swift */,
+				69C91FDB2860ABE700F55CFE /* UIButton-Extension.swift */,
+				69C91FDD2860AC0600F55CFE /* UIColor-Extension.swift */,
+				69C91FDF2860AC5200F55CFE /* UITextField-Extension.swift */,
+				69C91FE12860AC8000F55CFE /* UIView-Extension.swift */,
+				69C91FE32860ACB000F55CFE /* UIViewController-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,6 +278,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		69C91FCE285FD50000F55CFE /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				69C91FD1285FD5C200F55CFE /* Models */,
+				69C91FCF285FD51D00F55CFE /* DatabaseService.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		69C91FD1285FD5C200F55CFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				69C91FD2285FD5D000F55CFE /* LatLngObject.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		69C91FD4285FD6EF00F55CFE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				69C91FCE285FD50000F55CFE /* Database */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		69C91FE52860ACE100F55CFE /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				69C91FE62860AD1000F55CFE /* Locales.swift */,
+				69C91FE82860AD3700F55CFE /* Styles.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		69C91FEA2860AFC100F55CFE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				69C91FEB2860B06000F55CFE /* SourceSansPro-Regular.ttf */,
+				69C91FEC2860B06000F55CFE /* SourceSansPro-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,6 +337,10 @@
 			dependencies = (
 			);
 			name = GBFramework;
+			packageProductDependencies = (
+				69C91FCA285FD48C00F55CFE /* Realm */,
+				69C91FCC285FD48C00F55CFE /* RealmSwift */,
+			);
 			productName = GBFramework;
 			productReference = 69276AA02859FF3D00C00A3E /* GBFramework.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +369,9 @@
 				Base,
 			);
 			mainGroup = 69276A972859FF3C00C00A3E;
+			packageReferences = (
+				69C91FC9285FD48B00F55CFE /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 69276AA12859FF3D00C00A3E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -293,8 +386,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C91FED2860D70800F55CFE /* SourceSansPro-Regular.ttf in Resources */,
 				696014E5285F6E7100F61289 /* gpxgenerator_path.gpx in Resources */,
 				69276AB02859FF4100C00A3E /* LaunchScreen.storyboard in Resources */,
+				69C91FEE2860D70B00F55CFE /* SourceSansPro-SemiBold.ttf in Resources */,
 				69276AAD2859FF4100C00A3E /* Assets.xcassets in Resources */,
 				69276AAB2859FF3D00C00A3E /* Main.storyboard in Resources */,
 			);
@@ -308,18 +403,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				696014D9285DC64000F61289 /* MKMapView-Extension.swift in Sources */,
+				69C91FE22860AC8000F55CFE /* UIView-Extension.swift in Sources */,
 				696014D1285DC2FE00F61289 /* MapPointAnnotation.swift in Sources */,
 				696014CF285DC25700F61289 /* LatLng.swift in Sources */,
+				69C91FE42860ACB000F55CFE /* UIViewController-Extension.swift in Sources */,
+				69C91FDC2860ABE700F55CFE /* UIButton-Extension.swift in Sources */,
+				69C91FD82860AB5700F55CFE /* CALayer-Extension.swift in Sources */,
+				69C91FE02860AC5200F55CFE /* UITextField-Extension.swift in Sources */,
+				69C91FD6285FD83A00F55CFE /* MapPolyline.swift in Sources */,
 				696014DF285DC72100F61289 /* TSegue.swift in Sources */,
 				696014D3285DC38100F61289 /* LaunchVC.swift in Sources */,
 				696014DD285DC6BB00F61289 /* LocationProtocol.swift in Sources */,
+				69C91FD3285FD5D000F55CFE /* LatLngObject.swift in Sources */,
+				69C91FD0285FD51D00F55CFE /* DatabaseService.swift in Sources */,
+				69C91FDA2860ABCB00F55CFE /* UIBarButtonItem.swift in Sources */,
+				69C91FE92860AD3700F55CFE /* Styles.swift in Sources */,
 				69276AA42859FF3D00C00A3E /* AppDelegate.swift in Sources */,
 				696014D5285DC3F500F61289 /* MapVC.swift in Sources */,
 				696014D7285DC5E600F61289 /* Double-Extension.swift in Sources */,
+				69C91FE72860AD1000F55CFE /* Locales.swift in Sources */,
 				696014C9285DC19E00F61289 /* LocationService.swift in Sources */,
 				696014DB285DC67900F61289 /* UIImage-extension.swift in Sources */,
 				69276AA62859FF3D00C00A3E /* SceneDelegate.swift in Sources */,
 				696014CB285DC1DF00F61289 /* Observable.swift in Sources */,
+				69C91FDE2860AC0600F55CFE /* UIColor-Extension.swift in Sources */,
 				696014CD285DC21D00F61289 /* ObservableOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +654,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		69C91FC9285FD48B00F55CFE /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		69C91FCA285FD48C00F55CFE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69C91FC9285FD48B00F55CFE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		69C91FCC285FD48C00F55CFE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69C91FC9285FD48B00F55CFE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 69276A982859FF3C00C00A3E /* Project object */;
 }

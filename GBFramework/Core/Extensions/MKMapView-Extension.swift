@@ -24,6 +24,17 @@ extension MKMapView {
         annotation?.coordinate = CLLocationCoordinate2D(latitude: coord.lat, longitude: coord.lng)
         self.addAnnotation(annotation!)
     }
+
+    func addOverlay(from: LatLng, to: LatLng, color: UIColor = .blue, width: CGFloat = 3) {
+        if from.isEmpty || to.isEmpty { return }
+        let c1 = CLLocationCoordinate2D(latitude: from.lat, longitude: from.lng)
+        let c2 = CLLocationCoordinate2D(latitude: to.lat, longitude: to.lng)
+        let coords = [c1, c2]
+        let polyline = MapPolyline(coordinates: coords, count: coords.count)
+        polyline.color = color
+        polyline.width = width
+        self.addOverlay(polyline)
+    }
 }
 
 // MARK: - Map Bounds

@@ -2,21 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>test</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>test</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>test</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeName</key>
+			<string>MKDirectionsRequest</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.apple.maps.directionsrequest</string>
 			</array>
-			<key>CFBundleTypeName</key>
-			<string>MKDirectionsRequest</string>
 		</dict>
 	</array>
 	<key>MKDirectionsApplicationSupportedModes</key>
@@ -42,10 +36,27 @@
 			</array>
 		</dict>
 	</dict>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Your location will be used to show objects nearby and set your location address</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Your location will be used to show objects nearby and set your location address</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your location will be used to show objects nearby and set your location address</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Your location will be used to show objects nearby and set your location address</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location will be used to show objects nearby and set your location address</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location will be used to show objects nearby and set your location address</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
 		<string>processing</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SourceSansPro-Regular.ttf</string>
+		<string>SourceSansPro-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>
