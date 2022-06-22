@@ -25,8 +25,18 @@ class Locales {
         "dialog_text_beforeShowPathYouHaveToStopLocationObserving": "Сначала необходимо остановить слежение",
         "dialog_button_okStop": "ОК",
 
-        "vc_map_button_path": "Отобразить предыдущий маршрут",
+        "toast_login_error": "Введите корректный логин",
+        "toast_password_error": "Введите корректный пароль",
+
+        "vc_login_prompt_login": "Логин",
+        "vc_login_prompt_password": "Пароль",
+        "vc_login_button_signIn": "Вход",
+        "vc_login_button_signUp": "Регистрация",
+
+        "vc_map_button_path": "Предыдущий маршрут",
         "vc_map_button_start": "Начать новый трек",
-        "vc_map_button_end": "Закончить трек"
+        "vc_map_button_end": "Закончить трек",
+
+        "vc_register_title": "Регистрация",
     ]
 }

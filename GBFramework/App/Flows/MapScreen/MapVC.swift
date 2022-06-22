@@ -2,27 +2,32 @@
 //  MapVC.swift
 //  GBFramework
 //
-//  Created by Andrey Rachitskiy on 16.06.2022.
+//  Created by Andrey Rachitskiy on 20.06.2022.
 //
 
 import UIKit
 import MapKit
 
 class MapVC: UIViewController {
-    
+
     // MARK: - Outlets
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var startEndButton: UIButton!
     @IBOutlet private weak var pathButton: UIButton!
-    
+
+    // MARK: - Coordinator
+    var onSignOut: VoidClosure?
+
     // MARK: - Properties
-    private let database = DatabaseService()
+    var provider: LoginProvider?
+    private let database = DatabaseServiceImpl()
+    private var isProcessing = Observable(false)
     private var path = [LatLng]() {
         didSet {
             updatePath()
         }
     }
-    private var isProcessing = Observable(false)
+
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,23 +37,27 @@ class MapVC: UIViewController {
         onProcessing()
         updateData()
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeObservers()
     }
-    
+
     // MARK: - Private
     private func configure() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isHidden = true
+
         mapView.delegate = self
         startEndButton.style = Styles.shared.button.roundDfPr
         pathButton.style = Styles.shared.button.roundSmPr
     }
-    
+
     private func addObservers() {
         addObserversProcessing()
     }
-    
+
     private func removeObservers() {
         removeObserversLocation()
         removeObserversProcessing()
@@ -58,25 +67,33 @@ class MapVC: UIViewController {
     func updateData() {
         pathButton.setTitle(Locales.value("vc_map_button_path"), for: .normal)
     }
-    
+
     // MARK: - Map
     private func addAnnotation(_ latlng: LatLng) {
         guard !latlng.isEmpty else { return }
         mapView.addAnnotation(id: mapView.annotations.count, image: UIImage.circle(diameter: 4, color: .red), coord: latlng)
     }
-    
+
     private func updateCenter() {
         let center = self.path.last ?? LocationService.shared.location
         guard !center.isEmpty else { return }
         let showWithAnimation = mapView.annotations.count > 0
         mapView.setVisibleMapRect(center, radius: 2000, animated: showWithAnimation)
     }
-    
+
     // MARK: - Taps
+    @IBAction func onTapProfile(_ sender: UIButton) {
+        provider?.signOut(completion: { [weak self] isAuthed in
+            if !isAuthed {
+                self?.onSignOut?()
+            }
+        })
+    }
+
     @IBAction private func onTapStartEnd(_ sender: UIButton) {
         isProcessing.value = !isProcessing.value
     }
-    
+
     @IBAction private func onTapPath(_ sender: UIButton) {
         func readPath() {
             removeObserversProcessing()
@@ -90,7 +107,7 @@ class MapVC: UIViewController {
                                       edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40),
                                       animated: true)
         }
-        
+
         guard !isProcessing.value else {
             let dialog = UIAlertController(
                 title: Locales.value("dialog_title_warning"),
@@ -111,7 +128,7 @@ class MapVC: UIViewController {
 
 // MARK: - Location
 extension MapVC: LocationProtocol {
-    
+
     func addObserversLocation() {
         LocationService.shared.addObserver(self) { [weak self] latlng, _ in
             guard let self = self else { return }
@@ -120,7 +137,7 @@ extension MapVC: LocationProtocol {
             self.path.append(latlng)
         }
     }
-    
+
     func removeObserversLocation() {
         LocationService.shared.removeObserver(observer: self)
     }
@@ -128,7 +145,7 @@ extension MapVC: LocationProtocol {
 
 // MARK: - Map Delegate
 extension MapVC: MKMapViewDelegate {
-    
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let mapAnnotation = annotation as? MapPointAnnotation {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: mapAnnotation.customType)
@@ -139,7 +156,7 @@ extension MapVC: MKMapViewDelegate {
         }
         return nil
     }
-    
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polyline = overlay as? MapPolyline {
             let renderer = MKPolylineRenderer(overlay: polyline)
@@ -153,13 +170,13 @@ extension MapVC: MKMapViewDelegate {
 
 // MARK: Path Change
 extension MapVC {
-    
+
     private func updatePath() {
         updateAnnotations()
         updateOverlays()
         updateCenter()
     }
-    
+
     private func updateAnnotations() {
         if mapView.annotations.count == 0 {
             self.path.forEach({
@@ -170,12 +187,12 @@ extension MapVC {
             self.addAnnotation(latlng)
         }
     }
-    
+
     private func updateOverlays() {
         func addOverlay(from: LatLng, to: LatLng) {
             self.mapView.addOverlay(from: from, to: to, color: Styles.shared.c.mapRoute)
         }
-        
+
         if mapView.overlays.count == 0 {
             guard self.path.count > 0 else { return }
             for index in 0 ..< self.path.count - 1 {
@@ -190,17 +207,17 @@ extension MapVC {
 
 // MARK: Processing
 extension MapVC {
-    
+
     private func addObserversProcessing() {
         isProcessing.addObserver(self) { [weak self] _, _ in
             self?.onProcessing()
         }
     }
-    
+
     private func removeObserversProcessing() {
         isProcessing.removeObserver(self)
     }
-    
+
     private func onProcessing(storePath: Bool = true) {
         if isProcessing.value {
             startEndButton.setTitle(Locales.value("vc_map_button_end"), for: .normal)
@@ -215,7 +232,7 @@ extension MapVC {
             removeObserversLocation()
             LocationService.shared.stop()
             if storePath {
-                try? database.save(items: path)
+                try? database.savePath(path)
             }
         }
     }

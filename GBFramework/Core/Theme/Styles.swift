@@ -47,8 +47,15 @@ class Styles {
 
     init() {
         fonts = [String:MFont]()
+        fonts[button.bevelDfPr] = MFont(fs.fs26, fontB, c.cWhite, .left)
+        fonts[button.quietDfPr] = MFont(fs.fs26, fontB, c.fcPr, .left)
         fonts[button.roundSmPr] = MFont(fs.fs20, fontB, c.cWhite, .left)
         fonts[button.roundDfPr] = MFont(fs.fs26, fontB, c.cWhite, .left)
+
+        fonts[label.toast] = MFont(fs.fs18, fontR, c.cWhite, .center)
+
+        fonts[tf.dfPr] = MFont(fs.fs22, fontB, c.fcTfPr, .left)
+        fonts[tf.dfPh] = MFont(fs.fs22, fontB, c.fcTfPh, .left)
 
         fonts[view.navbarPrC] = MFont(fs.fs26, fontB, c.fcMain, .center)
     }
@@ -170,6 +177,9 @@ class Colors {
     let cWhite = UIColor(hex: "#ffffff")
 
     let fcMain = UIColor(hex: "#000000")
+    let fcPr = UIColor(hex: "#3d3c49")
+    let fcTfPr = UIColor(hex: "#000000")
+    let fcTfPh = UIColor(hex: "#808080")
 
     let buttonPrUp = UIColor(hex: "#3d3c49")
     let buttonPrDown: UIColor
@@ -202,6 +212,8 @@ class FontSizes {
 // MARK: - Button
 class ButtonStyles {
 
+    let bevelDfPr = "buttonBevelDfPr"
+    let quietDfPr = "buttonQuietDfPr"
     let roundSmPr = "buttonRoundSmPr"
     let roundDfPr = "buttonRoundDfPr"
 
@@ -212,8 +224,12 @@ class ButtonStyles {
     let cornerSm: CGFloat = 6
     let cornerDf: CGFloat = 10
 
+    private let fcHighlightedRatio = 0.5
+
     func applyStyle(_ style: String, _ button: UIButton) {
         switch style {
+        case bevelDfPr: setStyleBevelDfPr(style, button)
+        case quietDfPr: setStyleQuietDfPr(style, button)
         case roundSmPr: setStyleRoundSmPr(style, button)
         case roundDfPr: setStyleRoundDfPr(style, button)
         default:
@@ -252,6 +268,24 @@ class ButtonStyles {
         }
     }
 
+    private func setStyleBevelDfPr(_ style: String, _ button: UIButton) {
+        setStyleCommon(button: button,
+                       upColor: Styles.shared.c.buttonPrUp,
+                       downColor: Styles.shared.c.buttonPrDown,
+                       height: sizeDf,
+                       cornerRadius: cornerDf,
+                       fontStyle: style)
+        button.contentEdgeInsets = UIEdgeInsets(top: -2, left: 20, bottom: 0, right: 20)
+    }
+
+    private func setStyleQuietDfPr(_ style: String, _ button: UIButton) {
+        button.heightAnchor.constraint(equalToConstant: sizeDf).isActive = true
+        button.contentEdgeInsets = UIEdgeInsets(top: -2, left: 20, bottom: 0, right: 20)
+        setTextFont(style, button)
+        let fontStyle = Styles.shared.getFontStyle(style)
+        button.setTitleColor(fontStyle.color.withAlphaComponent(fontStyle.a * fcHighlightedRatio), for: .highlighted)
+    }
+
     private func setStyleRoundSmPr(_ style: String, _ button: UIButton) {
         setStyleCommon(button: button,
                        upColor: Styles.shared.c.buttonPrUp,
@@ -276,6 +310,7 @@ class ButtonStyles {
 // MARK: - Label
 class LabelStyles {
 
+    let toast = "toast"
     //let r20main = "r20main"
 
     func applyStyle(_ style: String, _ label: UILabel) {
@@ -289,11 +324,11 @@ class LabelStyles {
 // MARK: - Textfield
 class TextfieldStyles {
 
-    let ph = "textfieldPh"
-    let pr = "textfieldPr"
-    let prB = "textfieldPrB"
-    let prM = "textfieldPrM"
-    let prT = "textfieldPrT"
+    let dfPh = "textfieldDfPh"
+    let dfPr = "textfieldDfPr"
+    let dfPrB = "textfieldDfPrB"
+    let dfPrM = "textfieldDfPrM"
+    let dfPrT = "textfieldDfPrT"
 
     let sizeDf: CGFloat = 50
     let sizeLg: CGFloat = 60
@@ -317,10 +352,10 @@ class TextfieldStyles {
 
     func applyStyle(_ style: String, _ textfield: UITextField) {
         switch style {
-        case pr: setStylePr(style, textfield)
-        case prB: setStylePrB(style, textfield)
-        case prM: setStylePrM(style, textfield)
-        case prT: setStylePrT(style, textfield)
+        case dfPr: setStyleDfPr(style, textfield)
+        case dfPrB: setStyleDfPrB(style, textfield)
+        case dfPrM: setStyleDfPrM(style, textfield)
+        case dfPrT: setStyleDfPrT(style, textfield)
         default:
             print("no textfield style \(style)")
         }
@@ -330,39 +365,39 @@ class TextfieldStyles {
         print("no textview style \(style)")
     }
 
-    private func setStylePrCommon(_ style: String, _ textfield: UITextField) {
+    private func setStyleDfPrCommon(_ style: String, _ textfield: UITextField) {
         textfield.borderStyle = .none
         textfield.clipsToBounds = true
         textfield.layer.masksToBounds = true
         textfield.layer.borderWidth = 1
         textfield.layer.cornerRadius = cornerDf
         textfield.setHorizontalTextPadding(paddingDf)
-        textfield.tintColor = Styles.shared.getFontColor(pr)
-        textfield.setPlaceholder(textfield.placeholder ?? "", with: ph)
-        setTextFont(pr, textfield)
+        textfield.tintColor = Styles.shared.getFontColor(dfPr)
+        textfield.setPlaceholder(textfield.placeholder ?? "", with: dfPh)
+        setTextFont(dfPr, textfield)
         textfield.showTfUp()
     }
 
-    private func setStylePr(_ style: String, _ textfield: UITextField) {
-        setStylePrCommon(style, textfield)
+    private func setStyleDfPr(_ style: String, _ textfield: UITextField) {
+        setStyleDfPrCommon(style, textfield)
     }
 
-    private func setStylePrB(_ style: String, _ textfield: UITextField) {
-        setStylePrCommon(style, textfield)
+    private func setStyleDfPrB(_ style: String, _ textfield: UITextField) {
+        setStyleDfPrCommon(style, textfield)
         textfield.setBottomCornerRadius(value: cornerDf)
     }
 
-    private func setStylePrM(_ style: String, _ textfield: UITextField) {
-        setStylePrCommon(style, textfield)
+    private func setStyleDfPrM(_ style: String, _ textfield: UITextField) {
+        setStyleDfPrCommon(style, textfield)
         textfield.layer.cornerRadius = 0
     }
 
-    private func setStylePrT(_ style: String, _ textfield: UITextField) {
-        setStylePrCommon(style, textfield)
+    private func setStyleDfPrT(_ style: String, _ textfield: UITextField) {
+        setStyleDfPrCommon(style, textfield)
         textfield.setTopCornerRadius(value: cornerDf)
     }
 
-    private func setStylePr(_ style: String, _ textview: UITextView) {
+    private func setStyleDfPr(_ style: String, _ textview: UITextView) {
         setTextFont(style, textview)
     }
 }
