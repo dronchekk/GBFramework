@@ -86,6 +86,20 @@
 		69C920802863576700F55CFE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9207F2863576700F55CFE /* Config.swift */; };
 		69C92082286358F500F55CFE /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C92081286358F500F55CFE /* Assets.swift */; };
 		69C920862863630800F55CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69C920852863630800F55CFE /* Main.storyboard */; };
+		69C9208C2865EDA300F55CFE /* BlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9208A2865EDA300F55CFE /* BlurPopup.swift */; };
+		69C9208D2865EDA300F55CFE /* BlurPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C9208B2865EDA300F55CFE /* BlurPopup.xib */; };
+		69C920902865F14000F55CFE /* DialogBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9208F2865F14000F55CFE /* DialogBuilder.swift */; };
+		69C920922865F18D00F55CFE /* CGFloat-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C920912865F18D00F55CFE /* CGFloat-Extension.swift */; };
+		69C920942865F1B100F55CFE /* CGPoint-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C920932865F1B100F55CFE /* CGPoint-Extension.swift */; };
+		69C920962865F1CD00F55CFE /* UIPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C920952865F1CD00F55CFE /* UIPanGestureRecognizer.swift */; };
+		69C920992865F23F00F55CFE /* DialogRootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C920982865F23F00F55CFE /* DialogRootVC.swift */; };
+		69C9209B2865F26300F55CFE /* DimmPresentationConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9209A2865F26300F55CFE /* DimmPresentationConroller.swift */; };
+		69C9209D2865F28D00F55CFE /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9209C2865F28D00F55CFE /* DismissAnimation.swift */; };
+		69C9209F2865F2B900F55CFE /* PanelTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9209E2865F2B900F55CFE /* PanelTransition.swift */; };
+		69C920A12865F31700F55CFE /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C920A02865F31700F55CFE /* PresentAnimation.swift */; };
+		69C920A32865F34E00F55CFE /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C920A22865F34E00F55CFE /* PresentationController.swift */; };
+		69C920A52865F37700F55CFE /* TTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C920A42865F37700F55CFE /* TTransition.swift */; };
+		69C920A72865F39100F55CFE /* TransitionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C920A62865F39100F55CFE /* TransitionDriver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +181,20 @@
 		69C9207F2863576700F55CFE /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		69C92081286358F500F55CFE /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		69C920852863630800F55CFE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		69C9208A2865EDA300F55CFE /* BlurPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurPopup.swift; sourceTree = "<group>"; };
+		69C9208B2865EDA300F55CFE /* BlurPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlurPopup.xib; sourceTree = "<group>"; };
+		69C9208F2865F14000F55CFE /* DialogBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBuilder.swift; sourceTree = "<group>"; };
+		69C920912865F18D00F55CFE /* CGFloat-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat-Extension.swift"; sourceTree = "<group>"; };
+		69C920932865F1B100F55CFE /* CGPoint-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint-Extension.swift"; sourceTree = "<group>"; };
+		69C920952865F1CD00F55CFE /* UIPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		69C920982865F23F00F55CFE /* DialogRootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogRootVC.swift; sourceTree = "<group>"; };
+		69C9209A2865F26300F55CFE /* DimmPresentationConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmPresentationConroller.swift; sourceTree = "<group>"; };
+		69C9209C2865F28D00F55CFE /* DismissAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		69C9209E2865F2B900F55CFE /* PanelTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelTransition.swift; sourceTree = "<group>"; };
+		69C920A02865F31700F55CFE /* PresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
+		69C920A22865F34E00F55CFE /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		69C920A42865F37700F55CFE /* TTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTransition.swift; sourceTree = "<group>"; };
+		69C920A62865F39100F55CFE /* TransitionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDriver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +256,7 @@
 		696014BA285CD0BA00F61289 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				69C9208E2865F12A00F55CFE /* Builder */,
 				69C92072286350CB00F55CFE /* Library */,
 				69C9206128634DEA00F55CFE /* Api */,
 				69C91FE52860ACE100F55CFE /* Theme */,
@@ -287,6 +316,7 @@
 		696014BF285CD11100F61289 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				69C920872865EC9800F55CFE /* BlurPopup */,
 				69C9203A2863451400F55CFE /* MapScreen */,
 				69C920392863450800F55CFE /* RegisterScreen */,
 				69C92038286344FA00F55CFE /* ProfileScreen */,
@@ -320,6 +350,9 @@
 				69C91FE12860AC8000F55CFE /* UIView-Extension.swift */,
 				69C91FE32860ACB000F55CFE /* UIViewController-Extension.swift */,
 				69C9206E28634F5A00F55CFE /* DataRequest-Extension.swift */,
+				69C920912865F18D00F55CFE /* CGFloat-Extension.swift */,
+				69C920932865F1B100F55CFE /* CGPoint-Extension.swift */,
+				69C920952865F1CD00F55CFE /* UIPanGestureRecognizer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -588,6 +621,7 @@
 		69C92072286350CB00F55CFE /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				69C920972865F22A00F55CFE /* ViewTransition */,
 				69C920782863515C00F55CFE /* Keychain */,
 				69C92073286350D800F55CFE /* Coordinator */,
 			);
@@ -610,6 +644,38 @@
 				69C9207B286351E900F55CFE /* KeychainWrapper.swift */,
 			);
 			path = Keychain;
+			sourceTree = "<group>";
+		};
+		69C920872865EC9800F55CFE /* BlurPopup */ = {
+			isa = PBXGroup;
+			children = (
+				69C9208A2865EDA300F55CFE /* BlurPopup.swift */,
+				69C9208B2865EDA300F55CFE /* BlurPopup.xib */,
+			);
+			path = BlurPopup;
+			sourceTree = "<group>";
+		};
+		69C9208E2865F12A00F55CFE /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				69C9208F2865F14000F55CFE /* DialogBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		69C920972865F22A00F55CFE /* ViewTransition */ = {
+			isa = PBXGroup;
+			children = (
+				69C920982865F23F00F55CFE /* DialogRootVC.swift */,
+				69C9209A2865F26300F55CFE /* DimmPresentationConroller.swift */,
+				69C9209C2865F28D00F55CFE /* DismissAnimation.swift */,
+				69C9209E2865F2B900F55CFE /* PanelTransition.swift */,
+				69C920A02865F31700F55CFE /* PresentAnimation.swift */,
+				69C920A22865F34E00F55CFE /* PresentationController.swift */,
+				69C920A42865F37700F55CFE /* TTransition.swift */,
+				69C920A62865F39100F55CFE /* TransitionDriver.swift */,
+			);
+			path = ViewTransition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -686,6 +752,7 @@
 				69C91FEE2860D70B00F55CFE /* SourceSansPro-SemiBold.ttf in Resources */,
 				69C9205728634A5100F55CFE /* ProfileVC.xib in Resources */,
 				69276AAD2859FF4100C00A3E /* Assets.xcassets in Resources */,
+				69C9208D2865EDA300F55CFE /* BlurPopup.xib in Resources */,
 				69C9205B28634A9600F55CFE /* RegisterVC.xib in Resources */,
 				69C920422863465E00F55CFE /* LoginVC.xib in Resources */,
 				69C9204E2863491400F55CFE /* MapVC.xib in Resources */,
@@ -709,17 +776,22 @@
 				69C9200B286335FA00F55CFE /* AuthStatusProvider.swift in Sources */,
 				69C9206D28634EDF00F55CFE /* RequestRouter.swift in Sources */,
 				69C920162863376600F55CFE /* Factory.swift in Sources */,
+				69C920902865F14000F55CFE /* DialogBuilder.swift in Sources */,
+				69C9209B2865F26300F55CFE /* DimmPresentationConroller.swift in Sources */,
 				69C9202628633A1000F55CFE /* AuthCredentials.swift in Sources */,
 				69C91FFF2863333300F55CFE /* AuthLoginRequest.swift in Sources */,
 				69C92075286350F300F55CFE /* BaseCoordinator.swift in Sources */,
 				69C9207128634F9900F55CFE /* String-Extension.swift in Sources */,
 				696014D1285DC2FE00F61289 /* MapPointAnnotation.swift in Sources */,
+				69C920922865F18D00F55CFE /* CGFloat-Extension.swift in Sources */,
 				69C9206B28634EBC00F55CFE /* AbstractRequestFactory.swift in Sources */,
+				69C920A72865F39100F55CFE /* TransitionDriver.swift in Sources */,
 				696014CF285DC25700F61289 /* LatLng.swift in Sources */,
 				69C91FE42860ACB000F55CFE /* UIViewController-Extension.swift in Sources */,
 				69C920772863513100F55CFE /* Router.swift in Sources */,
 				69C91FDC2860ABE700F55CFE /* UIButton-Extension.swift in Sources */,
 				69C92008286335C600F55CFE /* DataManager.swift in Sources */,
+				69C920962865F1CD00F55CFE /* UIPanGestureRecognizer.swift in Sources */,
 				69C9204D2863491400F55CFE /* MapVC.swift in Sources */,
 				69C92019286337C300F55CFE /* ActivityHelper.swift in Sources */,
 				69C9207E2863524100F55CFE /* ViewModel.swift in Sources */,
@@ -728,6 +800,7 @@
 				69C920222863388300F55CFE /* MapCoordinator.swift in Sources */,
 				69C92082286358F500F55CFE /* Assets.swift in Sources */,
 				69C91FD82860AB5700F55CFE /* CALayer-Extension.swift in Sources */,
+				69C9209F2865F2B900F55CFE /* PanelTransition.swift in Sources */,
 				69C91FE02860AC5200F55CFE /* UITextField-Extension.swift in Sources */,
 				69C9201C2863381B00F55CFE /* AppCoordinator.swift in Sources */,
 				69C91FD6285FD83A00F55CFE /* MapPolyline.swift in Sources */,
@@ -741,15 +814,21 @@
 				69C920412863465E00F55CFE /* LoginVC.swift in Sources */,
 				69C920802863576700F55CFE /* Config.swift in Sources */,
 				69C91FD3285FD5D000F55CFE /* LatLngObject.swift in Sources */,
+				69C920A12865F31700F55CFE /* PresentAnimation.swift in Sources */,
 				69C91FD0285FD51D00F55CFE /* DatabaseServiceImpl.swift in Sources */,
 				69C9205628634A5100F55CFE /* ProfileVC.swift in Sources */,
 				69C91FDA2860ABCB00F55CFE /* UIBarButtonItem.swift in Sources */,
+				69C9208C2865EDA300F55CFE /* BlurPopup.swift in Sources */,
 				69C9200D2863362900F55CFE /* LoginProvider.swift in Sources */,
 				69C92024286338AB00F55CFE /* RegisterCoordinator.swift in Sources */,
 				69C91FE92860AD3700F55CFE /* Styles.swift in Sources */,
 				69C920202863386800F55CFE /* LoginCoordinator.swift in Sources */,
+				69C9209D2865F28D00F55CFE /* DismissAnimation.swift in Sources */,
 				69C92013286336C100F55CFE /* AuthService.swift in Sources */,
+				69C920942865F1B100F55CFE /* CGPoint-Extension.swift in Sources */,
 				69276AA42859FF3D00C00A3E /* AppDelegate.swift in Sources */,
+				69C920A52865F37700F55CFE /* TTransition.swift in Sources */,
+				69C920A32865F34E00F55CFE /* PresentationController.swift in Sources */,
 				696014D7285DC5E600F61289 /* Double-Extension.swift in Sources */,
 				69C91FE72860AD1000F55CFE /* Locales.swift in Sources */,
 				696014C9285DC19E00F61289 /* LocationService.swift in Sources */,
@@ -763,6 +842,7 @@
 				69C91FDE2860AC0600F55CFE /* UIColor-Extension.swift in Sources */,
 				696014CD285DC21D00F61289 /* ObservableOptions.swift in Sources */,
 				69C9202928633B4A00F55CFE /* TypeAlias.swift in Sources */,
+				69C920992865F23F00F55CFE /* DialogRootVC.swift in Sources */,
 				69C92004286333DF00F55CFE /* AuthSignInResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

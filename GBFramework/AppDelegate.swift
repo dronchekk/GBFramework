@@ -46,4 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        //        DataManager.shared.auth.isAuthed
         return true
     }
+    
+    let blurTag = 10001
+        func applicationDidEnterBackground(_ application: UIApplication) {
+           // DialogBuilder.shared.showBlurPopup()
+
+            // Another way withoud top level popup
+            //let blurVC = BlurPopup()
+            //blurVC.view.tag = blurTag
+            //window?.addSubview(blurVC.view)
+        }
+
+        func applicationDidBecomeActive(_ application: UIApplication) {
+            //DialogBuilder.shared.removeBlurPopup()
+
+            // Another way without top level popup
+            //let blurView = window?.viewWithTag(blurTag)
+            //blurView?.removeFromSuperview()
+        }
 }
