@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-SemiBold.ttf">
+            <string>SourceSansPro-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapVC" customModule="GBFramework" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="Yyo-w3-D0i" id="RUB-y4-Qb2"/>
+                <outlet property="pathButton" destination="fmM-bg-O3r" id="U9o-nx-xNv"/>
+                <outlet property="startEndButton" destination="HyE-6F-gDw" id="8Rj-Aj-f49"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yyo-w3-D0i">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmM-bg-O3r">
+                    <rect key="frame" x="20" y="51" width="67" height="38"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="22"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="onTapPath:" destination="-1" eventType="touchUpInside" id="7a9-PQ-Tbu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyE-6F-gDw">
+                    <rect key="frame" x="20" y="804" width="374" height="38"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="22"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="onTapStartEnd:" destination="-1" eventType="touchUpInside" id="wcP-ZZ-deM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frR-Aj-fmk">
+                    <rect key="frame" x="324" y="30" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="1Kr-rZ-aPd"/>
+                        <constraint firstAttribute="height" constant="80" id="TEo-XR-2BY"/>
+                    </constraints>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="main_profile">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="onTapProfile:" destination="-1" eventType="touchUpInside" id="dVW-TO-qIy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="frR-Aj-fmk" secondAttribute="trailing" constant="10" id="6Ri-Vz-EId"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HyE-6F-gDw" secondAttribute="bottom" constant="20" id="IBP-ha-jXX"/>
+                <constraint firstItem="Yyo-w3-D0i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IBm-ET-qOg"/>
+                <constraint firstItem="Yyo-w3-D0i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jdr-eL-nvh"/>
+                <constraint firstItem="fmM-bg-O3r" firstAttribute="centerY" secondItem="frR-Aj-fmk" secondAttribute="centerY" id="Rrd-jP-Ww4"/>
+                <constraint firstItem="fmM-bg-O3r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Sao-w8-3do"/>
+                <constraint firstAttribute="bottom" secondItem="Yyo-w3-D0i" secondAttribute="bottom" id="UuC-hg-Xfj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HyE-6F-gDw" secondAttribute="trailing" constant="20" id="VuF-pd-FJf"/>
+                <constraint firstItem="HyE-6F-gDw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="X4d-9R-u2o"/>
+                <constraint firstItem="frR-Aj-fmk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Yag-Re-p7N"/>
+                <constraint firstItem="Yyo-w3-D0i" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dbc-Hv-338"/>
+                <constraint firstItem="frR-Aj-fmk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fmM-bg-O3r" secondAttribute="trailing" constant="20" id="gMl-vz-iw3"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="141"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="main_profile" width="60" height="60"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
