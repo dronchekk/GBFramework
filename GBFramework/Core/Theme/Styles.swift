@@ -183,6 +183,7 @@ class Colors {
 
     let buttonPrUp = UIColor(hex: "#3d3c49")
     let buttonPrDown: UIColor
+    let buttonPrDisabled: UIColor
 
     let sep = UIColor(hex: "#ececec")
 
@@ -195,6 +196,7 @@ class Colors {
 
     init() {
         buttonPrDown = buttonPrUp.modified(withAdditionalHue: 0, additionalSaturation: 0, additionalBrightness: -0.1)
+        buttonPrDisabled = buttonPrUp.modified(withAdditionalHue: 0, additionalSaturation: 0, additionalBrightness: 0.3)
     }
 }
 
@@ -255,9 +257,10 @@ class ButtonStyles {
         button.setTitleColor(fontStyle.color.withAlphaComponent(fontStyle.a), for: .normal)
     }
 
-    private func setStyleCommon(button: UIButton, upColor: UIColor, downColor: UIColor, height: CGFloat, cornerRadius: CGFloat, fontStyle: String) {
+    private func setStyleCommon(button: UIButton, upColor: UIColor, downColor: UIColor, disabledColor: UIColor, height: CGFloat, cornerRadius: CGFloat, fontStyle: String) {
         button.backgroundColor = upColor
         button.setHighlightedBackgroundColor(downColor)
+        button.setDisabledBackgroundColor(disabledColor)
         button.heightAnchor.constraint(equalToConstant: height).isActive = true
         if cornerRadius > 0 {
             button.clipsToBounds = true
@@ -272,6 +275,7 @@ class ButtonStyles {
         setStyleCommon(button: button,
                        upColor: Styles.shared.c.buttonPrUp,
                        downColor: Styles.shared.c.buttonPrDown,
+                       disabledColor: Styles.shared.c.buttonPrDisabled,
                        height: sizeDf,
                        cornerRadius: cornerDf,
                        fontStyle: style)
@@ -290,6 +294,7 @@ class ButtonStyles {
         setStyleCommon(button: button,
                        upColor: Styles.shared.c.buttonPrUp,
                        downColor: Styles.shared.c.buttonPrDown,
+                       disabledColor: Styles.shared.c.buttonPrDisabled,
                        height: sizeSm,
                        cornerRadius: sizeSm / 2,
                        fontStyle: style)
@@ -300,6 +305,7 @@ class ButtonStyles {
         setStyleCommon(button: button,
                        upColor: Styles.shared.c.buttonPrUp,
                        downColor: Styles.shared.c.buttonPrDown,
+                       disabledColor: Styles.shared.c.buttonPrDisabled,
                        height: sizeDf,
                        cornerRadius: sizeDf / 2,
                        fontStyle: style)

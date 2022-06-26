@@ -50,3 +50,15 @@ extension String {
         return ceil(getTextSize(width: width, font: font).height)
     }
 }
+
+// MARK: - Validation
+extension String {
+
+    var isValidLogin: Bool {
+        get { return self.count > 3 }
+    }
+
+    var isValidPassword: Bool {
+        get { return self.count > 3 }
+    }
+}

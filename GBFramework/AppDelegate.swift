@@ -34,22 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                window?.rootViewController = navigationController
                window?.makeKeyAndVisible()
                appCoordinator?.start()
-       //        coordinator.isAuthed = DataManager.shared.auth.isAuthed
-       //        coordinator.present(animated: true, onDismissed: nil)
-       //
-       //        LocationService.shared.addObserver(self) { _, _ in
-       //            LocationService.shared.removeObserver(observer: self)
-       //            LocationService.shared.stop()
-       //        }
-       //        LocationService.shared.start()
-       //
-       //        DataManager.shared.auth.isAuthed
+
         return true
     }
     
     let blurTag = 10001
         func applicationDidEnterBackground(_ application: UIApplication) {
-           // DialogBuilder.shared.showBlurPopup()
+            DialogBuilder.shared.showBlurPopup()
 
             // Another way withoud top level popup
             //let blurVC = BlurPopup()
@@ -58,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         func applicationDidBecomeActive(_ application: UIApplication) {
-            //DialogBuilder.shared.removeBlurPopup()
+            DialogBuilder.shared.removeBlurPopup()
 
             // Another way without top level popup
             //let blurView = window?.viewWithTag(blurTag)

@@ -7,6 +7,9 @@
 
 import UIKit
 import MapKit
+import RxSwift
+import RxCocoa
+import RxRelay
 
 class MapVC: UIViewController {
 
@@ -21,12 +24,16 @@ class MapVC: UIViewController {
     // MARK: - Properties
     var provider: LoginProvider?
     private let database = DatabaseServiceImpl()
-    private var isProcessing = Observable(false)
+    private var isProcessing = CustomObservable(false)
     private var path = [LatLng]() {
         didSet {
             updatePath()
         }
     }
+
+    // MARK: - Rx
+        private let disposeBag = DisposeBag()
+        private var locationDisposable: Disposable?
 
     // MARK: - View
     override func viewDidLoad() {
@@ -75,7 +82,7 @@ class MapVC: UIViewController {
     }
 
     private func updateCenter() {
-        let center = self.path.last ?? LocationService.shared.location
+        guard let center = self.path.last else { return }
         guard !center.isEmpty else { return }
         let showWithAnimation = mapView.annotations.count > 0
         mapView.setVisibleMapRect(center, radius: 2000, animated: showWithAnimation)
@@ -130,16 +137,27 @@ class MapVC: UIViewController {
 extension MapVC: LocationProtocol {
 
     func addObserversLocation() {
-        LocationService.shared.addObserver(self) { [weak self] latlng, _ in
-            guard let self = self else { return }
-            var latlng = latlng
-            latlng.id = self.path.count
-            self.path.append(latlng)
-        }
+        locationDisposable?.dispose()
+        locationDisposable = LocationService.shared.currentLocation
+            .subscribe { [weak self] latlng in
+                guard let self = self, let coord = latlng.element, !coord.isEmpty else { return }
+                print(coord)
+                var latlng = coord
+                latlng.id = self.path.count
+                self.path.append(latlng)
+            }
+        locationDisposable?.disposed(by: disposeBag)
+//        LocationService.shared.addObserver(self) { [weak self] latlng, _ in
+//            guard let self = self else { return }
+//            var latlng = latlng
+//            latlng.id = self.path.count
+//            self.path.append(latlng)
+//        }
     }
 
     func removeObserversLocation() {
-        LocationService.shared.removeObserver(observer: self)
+        locationDisposable?.dispose()
+//        LocationService.shared.removeObserver(observer: self)
     }
 }
 

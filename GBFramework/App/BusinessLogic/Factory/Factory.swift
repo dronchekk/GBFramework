@@ -99,7 +99,7 @@ extension Factory: ScreenFactory {
 
     func makeLoginScreen() -> LoginVC {
         let screen = LoginVC.loadFromNib()
-        screen.provider = loginProvider
+        screen.loginProvider = loginProvider
         return screen
     }
 
