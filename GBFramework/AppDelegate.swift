@@ -10,27 +10,68 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    lazy var factory: Factory = { return Factory() }()
 
+    lazy var firebase = FirebaseDelegate(factory: factory)
+    var appCoordinator: AppCoordinator?
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        UINavigationBar.appearance().titleTextAttributes = Styles.shared.getAttributes(Styles.shared.view.navbarPrC)
+        UINavigationBar.appearance().tintColor = Styles.shared.getFontColor(Styles.shared.view.navbarPrC)
+
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: Assets.appbarBack)
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: Assets.appbarBack)
+
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0.1), NSAttributedString.Key.foregroundColor: UIColor.clear]
+        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .highlighted)
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController()
+        let router = RouterImpl(rootController: navigationController)
+        appCoordinator = AppCoordinator(router: router, coordinatorFactory: factory)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        appCoordinator?.start()
+
         return true
     }
+    
+    let blurTag = 10001
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        DialogBuilder.shared.showBlurPopup()
 
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        // Another way withoud top level popup
+        //let blurVC = BlurPopup()
+        //blurVC.view.tag = blurTag
+        //window?.addSubview(blurVC.view)
+        firebase.addScheduledNotificationToComeBack()
     }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        DialogBuilder.shared.removeBlurPopup()
+
+        // Another way without top level popup
+        //let blurView = window?.viewWithTag(blurTag)
+        //blurView?.removeFromSuperview()
     }
-
-
 }
 
+// MARK: - Notifications
+extension AppDelegate {
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        completionHandler(UIBackgroundFetchResult.newData)
+        firebase.didReceiveRemoteNotification(userInfo)
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        firebase.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        firebase.didFailToRegisterForRemoteNotificationsWithError(error)
+    }
+}
