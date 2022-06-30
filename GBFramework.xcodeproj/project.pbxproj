@@ -22,6 +22,9 @@
 		696014DF285DC72100F61289 /* TSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696014DE285DC72100F61289 /* TSegue.swift */; };
 		696014E3285F6C5F00F61289 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 696014E2285F6C5F00F61289 /* MapKit.framework */; };
 		696014E5285F6E7100F61289 /* gpxgenerator_path.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 696014E4285F6E7100F61289 /* gpxgenerator_path.gpx */; };
+		699D7161286A20E700E702B4 /* FcmCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D7160286A20E700E702B4 /* FcmCredentials.swift */; };
+		699D7163286A217E00E702B4 /* Int-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D7162286A217E00E702B4 /* Int-Extension.swift */; };
+		699D7165286B3A6700E702B4 /* FirebaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D7164286B3A6700E702B4 /* FirebaseDelegate.swift */; };
 		69C91FCB285FD48C00F55CFE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 69C91FCA285FD48C00F55CFE /* Realm */; };
 		69C91FCD285FD48C00F55CFE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69C91FCC285FD48C00F55CFE /* RealmSwift */; };
 		69C91FD0285FD51D00F55CFE /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FCF285FD51D00F55CFE /* DatabaseServiceImpl.swift */; };
@@ -123,6 +126,10 @@
 		696014DE285DC72100F61289 /* TSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSegue.swift; sourceTree = "<group>"; };
 		696014E2285F6C5F00F61289 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		696014E4285F6E7100F61289 /* gpxgenerator_path.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gpxgenerator_path.gpx; sourceTree = "<group>"; };
+		699D7160286A20E700E702B4 /* FcmCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcmCredentials.swift; sourceTree = "<group>"; };
+		699D7162286A217E00E702B4 /* Int-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int-Extension.swift"; sourceTree = "<group>"; };
+		699D7164286B3A6700E702B4 /* FirebaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDelegate.swift; sourceTree = "<group>"; };
+		699D7166286B471600E702B4 /* GBFramework.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GBFramework.entitlements; sourceTree = "<group>"; };
 		69C91FCF285FD51D00F55CFE /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		69C91FD2285FD5D000F55CFE /* LatLngObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngObject.swift; sourceTree = "<group>"; };
 		69C91FD5285FD83A00F55CFE /* MapPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPolyline.swift; sourceTree = "<group>"; };
@@ -238,12 +245,14 @@
 		69276AA22859FF3D00C00A3E /* GBFramework */ = {
 			isa = PBXGroup;
 			children = (
+				699D7166286B471600E702B4 /* GBFramework.entitlements */,
 				696014B9285CD0A600F61289 /* App */,
 				69276AA32859FF3D00C00A3E /* AppDelegate.swift */,
 				696014BA285CD0BA00F61289 /* Core */,
 				696014BB285CD0C400F61289 /* Environments */,
 				696014BC285CD0DC00F61289 /* Resources */,
 				69276AB12859FF4100C00A3E /* Info.plist */,
+				699D7164286B3A6700E702B4 /* FirebaseDelegate.swift */,
 			);
 			path = GBFramework;
 			sourceTree = "<group>";
@@ -315,6 +324,7 @@
 				696014D0285DC2FE00F61289 /* MapPointAnnotation.swift */,
 				69C91FD5285FD83A00F55CFE /* MapPolyline.swift */,
 				69C9202528633A1000F55CFE /* AuthCredentials.swift */,
+				699D7160286A20E700E702B4 /* FcmCredentials.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -359,6 +369,7 @@
 				69C920912865F18D00F55CFE /* CGFloat-Extension.swift */,
 				69C920932865F1B100F55CFE /* CGPoint-Extension.swift */,
 				69C920952865F1CD00F55CFE /* UIPanGestureRecognizer.swift */,
+				699D7162286A217E00E702B4 /* Int-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -793,6 +804,7 @@
 				69C92075286350F300F55CFE /* BaseCoordinator.swift in Sources */,
 				69C9207128634F9900F55CFE /* String-Extension.swift in Sources */,
 				696014D1285DC2FE00F61289 /* MapPointAnnotation.swift in Sources */,
+				699D7163286A217E00E702B4 /* Int-Extension.swift in Sources */,
 				69C920922865F18D00F55CFE /* CGFloat-Extension.swift in Sources */,
 				69C9206B28634EBC00F55CFE /* AbstractRequestFactory.swift in Sources */,
 				69C920A72865F39100F55CFE /* TransitionDriver.swift in Sources */,
@@ -821,6 +833,7 @@
 				696014DD285DC6BB00F61289 /* LocationProtocol.swift in Sources */,
 				69C920012863337200F55CFE /* RequestFactory.swift in Sources */,
 				69C9201E2863384600F55CFE /* LaunchCoordinator.swift in Sources */,
+				699D7165286B3A6700E702B4 /* FirebaseDelegate.swift in Sources */,
 				69C920412863465E00F55CFE /* LoginVC.swift in Sources */,
 				69C920802863576700F55CFE /* Config.swift in Sources */,
 				69C91FD3285FD5D000F55CFE /* LatLngObject.swift in Sources */,
@@ -850,6 +863,7 @@
 				696014DB285DC67900F61289 /* UIImage-extension.swift in Sources */,
 				696014CB285DC1DF00F61289 /* CustomObservable.swift in Sources */,
 				69C91FDE2860AC0600F55CFE /* UIColor-Extension.swift in Sources */,
+				699D7161286A20E700E702B4 /* FcmCredentials.swift in Sources */,
 				696014CD285DC21D00F61289 /* CustomObservableOptions.swift in Sources */,
 				69C9202928633B4A00F55CFE /* TypeAlias.swift in Sources */,
 				69C920992865F23F00F55CFE /* DialogRootVC.swift in Sources */,
@@ -990,9 +1004,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GBFramework/GBFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 83B86ZJ7T7;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GBFramework/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = test;
@@ -1022,9 +1037,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GBFramework/GBFramework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 83B86ZJ7T7;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GBFramework/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = test;
