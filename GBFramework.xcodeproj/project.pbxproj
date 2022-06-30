@@ -25,6 +25,7 @@
 		699D7161286A20E700E702B4 /* FcmCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D7160286A20E700E702B4 /* FcmCredentials.swift */; };
 		699D7163286A217E00E702B4 /* Int-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D7162286A217E00E702B4 /* Int-Extension.swift */; };
 		699D7165286B3A6700E702B4 /* FirebaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D7164286B3A6700E702B4 /* FirebaseDelegate.swift */; };
+		699D7168286DAE0700E702B4 /* FileManager-Exstention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699D7167286DAE0700E702B4 /* FileManager-Exstention.swift */; };
 		69C91FCB285FD48C00F55CFE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 69C91FCA285FD48C00F55CFE /* Realm */; };
 		69C91FCD285FD48C00F55CFE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69C91FCC285FD48C00F55CFE /* RealmSwift */; };
 		69C91FD0285FD51D00F55CFE /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C91FCF285FD51D00F55CFE /* DatabaseServiceImpl.swift */; };
@@ -130,6 +131,7 @@
 		699D7162286A217E00E702B4 /* Int-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int-Extension.swift"; sourceTree = "<group>"; };
 		699D7164286B3A6700E702B4 /* FirebaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDelegate.swift; sourceTree = "<group>"; };
 		699D7166286B471600E702B4 /* GBFramework.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GBFramework.entitlements; sourceTree = "<group>"; };
+		699D7167286DAE0700E702B4 /* FileManager-Exstention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Exstention.swift"; sourceTree = "<group>"; };
 		69C91FCF285FD51D00F55CFE /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		69C91FD2285FD5D000F55CFE /* LatLngObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngObject.swift; sourceTree = "<group>"; };
 		69C91FD5285FD83A00F55CFE /* MapPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPolyline.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				69C920932865F1B100F55CFE /* CGPoint-Extension.swift */,
 				69C920952865F1CD00F55CFE /* UIPanGestureRecognizer.swift */,
 				699D7162286A217E00E702B4 /* Int-Extension.swift */,
+				699D7167286DAE0700E702B4 /* FileManager-Exstention.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 				69C9209F2865F2B900F55CFE /* PanelTransition.swift in Sources */,
 				69C91FE02860AC5200F55CFE /* UITextField-Extension.swift in Sources */,
 				69C9201C2863381B00F55CFE /* AppCoordinator.swift in Sources */,
+				699D7168286DAE0700E702B4 /* FileManager-Exstention.swift in Sources */,
 				69C91FD6285FD83A00F55CFE /* MapPolyline.swift in Sources */,
 				69C9205A28634A9600F55CFE /* RegisterVC.swift in Sources */,
 				696014DF285DC72100F61289 /* TSegue.swift in Sources */,

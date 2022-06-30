@@ -21,8 +21,7 @@ class LocationService: NSObject {
 
     // MARK: - Rx
     private var currentLocationRelay = ReplayRelay<LatLng>.create(bufferSize: 1)
-    lazy var currentLocation: Observable<LatLng> =
-    self.currentLocationRelay.asObservable().share()
+    lazy var currentLocation: Observable<LatLng> = self.currentLocationRelay.asObservable().share()
 
 //    var location: LatLng {
 //        get { return currentLocation.value }
@@ -80,6 +79,10 @@ class LocationService: NSObject {
         isRunning = false
         service.stopUpdatingLocation()
     }
+
+    func getLastLocation() -> Observable<LatLng>{
+            return currentLocation
+        }
 }
 
 // MARK: - Delegate

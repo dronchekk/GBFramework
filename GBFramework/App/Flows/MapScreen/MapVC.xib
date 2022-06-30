@@ -62,6 +62,16 @@
                         <action selector="onTapProfile:" destination="-1" eventType="touchUpInside" id="dVW-TO-qIy"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yY1-jn-Aey">
+                    <rect key="frame" x="174" y="51" width="67" height="38"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="22"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="onTapPath:" destination="-1" eventType="touchUpInside" id="ZwI-V5-Qgj"/>
+                        <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="r1E-Cl-gvm"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -76,8 +86,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HyE-6F-gDw" secondAttribute="trailing" constant="20" id="VuF-pd-FJf"/>
                 <constraint firstItem="HyE-6F-gDw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="X4d-9R-u2o"/>
                 <constraint firstItem="frR-Aj-fmk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="Yag-Re-p7N"/>
+                <constraint firstItem="yY1-jn-Aey" firstAttribute="leading" secondItem="fmM-bg-O3r" secondAttribute="trailing" constant="87" id="b0V-uM-Aa0"/>
                 <constraint firstItem="Yyo-w3-D0i" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dbc-Hv-338"/>
                 <constraint firstItem="frR-Aj-fmk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fmM-bg-O3r" secondAttribute="trailing" constant="20" id="gMl-vz-iw3"/>
+                <constraint firstItem="Yyo-w3-D0i" firstAttribute="top" secondItem="yY1-jn-Aey" secondAttribute="bottom" constant="-89" id="heG-fP-Jj3"/>
+                <constraint firstItem="frR-Aj-fmk" firstAttribute="leading" secondItem="yY1-jn-Aey" secondAttribute="trailing" constant="83" id="yHc-sW-pjN"/>
             </constraints>
             <point key="canvasLocation" x="139" y="141"/>
         </view>

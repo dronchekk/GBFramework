@@ -12,15 +12,15 @@ import RxCocoa
 import RxRelay
 
 class MapVC: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var startEndButton: UIButton!
     @IBOutlet private weak var pathButton: UIButton!
-
+    
     // MARK: - Coordinator
     var onSignOut: VoidClosure?
-
+    
     // MARK: - Properties
     var provider: LoginProvider?
     private let database = DatabaseServiceImpl()
@@ -30,11 +30,11 @@ class MapVC: UIViewController {
             updatePath()
         }
     }
-
+    
     // MARK: - Rx
-        private let disposeBag = DisposeBag()
-        private var locationDisposable: Disposable?
-
+    private let disposeBag = DisposeBag()
+    private var locationDisposable: Disposable?
+    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,50 +44,50 @@ class MapVC: UIViewController {
         onProcessing()
         updateData()
     }
-
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeObservers()
     }
-
+    
     // MARK: - Private
     private func configure() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isHidden = true
-
+        
         mapView.delegate = self
         startEndButton.style = Styles.shared.button.roundDfPr
         pathButton.style = Styles.shared.button.roundSmPr
     }
-
+    
     private func addObservers() {
         addObserversProcessing()
     }
-
+    
     private func removeObservers() {
         removeObserversLocation()
         removeObserversProcessing()
     }
-
+    
     // MARK: - Data
     func updateData() {
         pathButton.setTitle(Locales.value("vc_map_button_path"), for: .normal)
     }
-
+    
     // MARK: - Map
     private func addAnnotation(_ latlng: LatLng) {
         guard !latlng.isEmpty else { return }
         mapView.addAnnotation(id: mapView.annotations.count, image: UIImage.circle(diameter: 4, color: .red), coord: latlng)
     }
-
+    
     private func updateCenter() {
         guard let center = self.path.last else { return }
         guard !center.isEmpty else { return }
         let showWithAnimation = mapView.annotations.count > 0
         mapView.setVisibleMapRect(center, radius: 2000, animated: showWithAnimation)
     }
-
+    
     // MARK: - Taps
     @IBAction func onTapProfile(_ sender: UIButton) {
         provider?.signOut(completion: { [weak self] isAuthed in
@@ -96,11 +96,24 @@ class MapVC: UIViewController {
             }
         })
     }
-
+    
     @IBAction private func onTapStartEnd(_ sender: UIButton) {
         isProcessing.value = !isProcessing.value
     }
-
+    
+    @IBAction func takePicture(_ sender: Any) {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera)
+        else { return }
+        
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .camera
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        
+        present(imagePickerController, animated: true)
+    }
+    
     @IBAction private func onTapPath(_ sender: UIButton) {
         func readPath() {
             removeObserversProcessing()
@@ -114,7 +127,7 @@ class MapVC: UIViewController {
                                       edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40),
                                       animated: true)
         }
-
+        
         guard !isProcessing.value else {
             let dialog = UIAlertController(
                 title: Locales.value("dialog_title_warning"),
@@ -133,9 +146,10 @@ class MapVC: UIViewController {
     }
 }
 
+
 // MARK: - Location
 extension MapVC: LocationProtocol {
-
+    
     func addObserversLocation() {
         locationDisposable?.dispose()
         locationDisposable = LocationService.shared.currentLocation
@@ -147,23 +161,23 @@ extension MapVC: LocationProtocol {
                 self.path.append(latlng)
             }
         locationDisposable?.disposed(by: disposeBag)
-//        LocationService.shared.addObserver(self) { [weak self] latlng, _ in
-//            guard let self = self else { return }
-//            var latlng = latlng
-//            latlng.id = self.path.count
-//            self.path.append(latlng)
-//        }
+        //        LocationService.shared.addObserver(self) { [weak self] latlng, _ in
+        //            guard let self = self else { return }
+        //            var latlng = latlng
+        //            latlng.id = self.path.count
+        //            self.path.append(latlng)
+        //        }
     }
-
+    
     func removeObserversLocation() {
         locationDisposable?.dispose()
-//        LocationService.shared.removeObserver(observer: self)
+        //        LocationService.shared.removeObserver(observer: self)
     }
 }
 
 // MARK: - Map Delegate
 extension MapVC: MKMapViewDelegate {
-
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let mapAnnotation = annotation as? MapPointAnnotation {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: mapAnnotation.customType)
@@ -174,7 +188,7 @@ extension MapVC: MKMapViewDelegate {
         }
         return nil
     }
-
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polyline = overlay as? MapPolyline {
             let renderer = MKPolylineRenderer(overlay: polyline)
@@ -186,15 +200,15 @@ extension MapVC: MKMapViewDelegate {
     }
 }
 
-// MARK: Path Change
+// MARK: - Path Change
 extension MapVC {
-
+    
     private func updatePath() {
         updateAnnotations()
         updateOverlays()
         updateCenter()
     }
-
+    
     private func updateAnnotations() {
         if mapView.annotations.count == 0 {
             self.path.forEach({
@@ -205,12 +219,12 @@ extension MapVC {
             self.addAnnotation(latlng)
         }
     }
-
+    
     private func updateOverlays() {
         func addOverlay(from: LatLng, to: LatLng) {
             self.mapView.addOverlay(from: from, to: to, color: Styles.shared.c.mapRoute)
         }
-
+        
         if mapView.overlays.count == 0 {
             guard self.path.count > 0 else { return }
             for index in 0 ..< self.path.count - 1 {
@@ -223,19 +237,19 @@ extension MapVC {
     }
 }
 
-// MARK: Processing
+// MARK: - Processing
 extension MapVC {
-
+    
     private func addObserversProcessing() {
         isProcessing.addObserver(self) { [weak self] _, _ in
             self?.onProcessing()
         }
     }
-
+    
     private func removeObserversProcessing() {
         isProcessing.removeObserver(self)
     }
-
+    
     private func onProcessing(storePath: Bool = true) {
         if isProcessing.value {
             startEndButton.setTitle(Locales.value("vc_map_button_end"), for: .normal)
@@ -253,5 +267,39 @@ extension MapVC {
                 try? database.savePath(path)
             }
         }
+    }
+}
+
+extension MapVC: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true) { [weak self] in
+            guard let image = self?.extractImage(from: info) else { return }
+            self?.onTakeAndSavePicture(image)
+        }
+    }
+    
+    // MARK: - ExtractImage
+    
+    private func extractImage(from info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
+        // Change
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            return image
+            // Original
+        } else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            return image
+        } else {
+            return nil
+        }
+    }
+    
+    // MARK: - Save image and put too marker
+    
+    private func onTakeAndSavePicture(_ image: UIImage) {
+        FileManager.saveImage(image)
     }
 }
